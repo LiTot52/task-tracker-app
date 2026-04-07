@@ -1,0 +1,133 @@
+.page {
+    min-height: 100vh;
+    background-color: var(--bg-page);
+    color: var(--text-primary);
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--header-bg);
+    border-bottom: 3px solid var(--header-border);
+    height: 80px;
+    padding: 0 20px;
+}
+
+.header__menu-list {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.header__menu-list:nth-of-type(1){
+    gap: 10px;
+}
+
+.header__logo {
+    font-size: var(--text-xl);
+    text-decoration: none;
+    
+}
+
+.icon-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    background-color: transparent;
+    border: 0;
+    color: var(--icon-secondary);
+    transition: background-color var(--transition), color var(--transition);
+}
+
+.icon-btn img {
+    width: 24px;
+    height: 24px;
+}
+
+[aria-label = "Профиль"] img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+
+/*! ____________________________MAIN____________________________ */
+/* .app {
+}
+.sidebar {
+}
+.btn {
+}
+.btn--primary {
+}
+.sidebar__add-btn {
+}
+.sidebar__nav {
+}
+.sidebar__nav-list {
+}
+.sidebar__nav-link {
+}
+.sidebar__nav-link--active {
+}
+.sidebar__projects {
+}
+.sidebar__projects-toggle {
+}
+.sidebar__projects-list {
+}
+.content {
+}
+.content__title {
+}
+.task-list {
+}
+.task-item {
+}
+.task-item__checkbox {
+}
+.task-item__name {
+}
+.task-item__priority {
+}
+.task-item__priority--high {
+}
+.task-item--done {
+}
+.task-item__checkbox--checked {
+}
+.task-item__priority--low {
+}
+.modal-overlay {
+}
+.modal {
+}
+.modal__title {
+}
+.modal__label {
+}
+.modal__input {
+}
+.modal__textarea {
+}
+.modal__priority {
+}
+.priority-btn {
+}
+.priority-btn--high {
+}
+.priority-btn--medium {
+}
+.priority-btn--low {
+}
+.modal__select {
+}
+.modal__actions {
+}
+.btn--secondary {
+} */

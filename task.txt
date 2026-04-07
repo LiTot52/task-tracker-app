@@ -1,0 +1,120 @@
+    <main class="app">
+		<aside class="sidebar" aria-label="Боковая панель">
+
+			<!--! Кнопка создания новой задачи -->
+			<button class="btn btn--primary sidebar__add-btn" id="openModalBtn" aria-label="Добавить задачу">
+				<img src="./svg/plus.svg" alt="">
+				Добавить задачу
+			</button>
+
+			<!--! Навигация: Сегодня / Предстоящее -->
+			<nav class="sidebar__nav" aria-label="Разделы">
+				<ul class="sidebar__nav-list">
+					<li>
+						<a href="#" class="sidebar__nav-link sidebar__nav-link--active">
+							<img src="./svg/check_circle.svg" alt=""> Сегодня
+						</a>
+					</li>
+					<li>
+						<a href="#" class="sidebar__nav-link">
+							<img src="./svg/calendar.svg" alt=""> Предстоящее
+						</a>
+					</li>
+				</ul>
+			</nav>
+
+			<!--! Раздел проектов с раскрытием -->
+			<div class="sidebar__projects">
+				<button class="sidebar__projects-toggle" aria-expanded="false" aria-controls="projectsList">
+					<img src="./svg/chevron_right.svg" alt="">
+					Мои проекты
+					<button class="icon-btn" aria-label="Добавить проект">
+						<img src="./svg/plus.svg" alt="">
+					</button>
+				</button>
+				<!--! Список проектов (заполняется динамически) -->
+				<ul class="sidebar__projects-list" id="projectsList" hidden></ul>
+			</div>
+
+			<div class="sidebar__bottom">
+    			<button class="icon-btn theme-toggle" id="themeToggle" aria-label="Переключить тему">
+      				<img src="./svg/moon.svg" alt="" class="theme-toggle__icon theme-toggle__icon--dark">
+      				<img src="./svg/sun.svg"  alt="" class="theme-toggle__icon theme-toggle__icon--light">
+    			</button>
+  			</div>
+		</aside>
+
+		
+		<section class="content">
+
+			<h1 class="content__title">Сегодня</h1>
+
+			<!--! Список задач -->
+			<ul class="task-list" aria-label="Список задач">
+
+				<!--! Задача: не выполнена -->
+				<li class="task-item">
+					<button class="task-item__checkbox" aria-label="Отметить выполненной"></button>
+					<span class="task-item__name">Купить кофе</span>
+
+					<!--! Индикатор приоритета: --high / --medium / --low -->
+					<span class="task-item__priority task-item__priority--high" aria-label="Высокий приоритет"></span>
+				</li>
+
+				<!--! Задача: выполнена (модификатор --done зачёркивает текст) -->
+				<li class="task-item task-item--done">
+					<button class="task-item__checkbox task-item__checkbox--checked" aria-label="Снять отметку"></button>
+					<span class="task-item__name">Купить кофе</span>
+					<span class="task-item__priority task-item__priority--low" aria-label="Низкий приоритет"></span>
+				</li>
+
+			</ul>
+
+		</section>
+
+		<div class="modal-overlay" id="taskModal" hidden aria-hidden="true">
+			<div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+
+				<h2 class="modal__title" id="modalTitle">Новая задача</h2>
+
+				<!--! Название -->
+				<label class="modal__label" for="taskName">Название задачи</label>
+				<input class="modal__input" type="text" id="taskName" placeholder="Введите название">
+
+				<!--! Описание -->
+				<label class="modal__label" for="taskDesc">Описание</label>
+				<textarea class="modal__textarea" id="taskDesc" placeholder="Введите описание"></textarea>
+
+				<!--! Приоритет -->
+				<div class="modal__priority" role="group" aria-label="Приоритет">
+					<button class="priority-btn priority-btn--high">Высокий</button>
+					<button class="priority-btn priority-btn--medium">Средний</button>
+					<button class="priority-btn priority-btn--low">Низкий</button>
+				</div>
+
+				<!--! Дата -->
+				<button class="modal__select" id="datePickerBtn">
+					<img src="./svg/calendar.svg" alt=""> Выберите дату
+				</button>
+
+				<!--! Проект -->
+				<button class="modal__select" id="projectPickerBtn">
+					<img src="./svg/chevron_down.svg" alt=""> Выберите проект
+				</button>
+
+                <!--! Действия -->
+				<div class="modal__actions">
+					<button class="btn btn--primary"   id="saveTaskBtn">Сохранить</button>
+					<button class="btn btn--secondary" id="cancelTaskBtn">Отмена</button>
+				</div>
+
+			</div>
+		</div>
+
+		<section id="view-today" class="content">...</section>
+		<section id="view-upcoming" class="content content--hidden">
+			<h1 class="content__title">Предстоящее</h1>
+			<ul class="task-list" aria-label="Предстоящие задачи"></ul>
+		</section>
+
+	</main>

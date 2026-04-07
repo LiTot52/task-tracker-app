@@ -1,16 +1,72 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" data-theme="light">
 
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Трекер задач</title>
-	<link rel="stylesheet" href="fonts/fonts.css">
-	<link rel="stylesheet" href="style/style.css">
+	<meta name="color-scheme" content="dark light">
+
+	<!--! Стили: переменные → сброс → базовые → компоненты → темы -->
+	<link rel="stylesheet" href="./fonts/fonts.css">
+	<link rel="stylesheet" href="./style/variable.css">
+	<link rel="stylesheet" href="./style/global.css">
+	<link rel="stylesheet" href="./style/style.css">
+	<link rel="stylesheet" href="./style/light.css">
+	<link rel="stylesheet" href="./style/dark.css">
+
+	<title>DayControl - Трекер задач</title>
 </head>
 
-<body>
+<body class="page">
+
+	<header class="header">
+
+		<!--! Левая часть: логотип + иконки управления -->
+		<nav class="header__menu" aria-label="Основная навигация">
+			<ul class="header__menu-list">
+				<li>
+					<a href="/" class="header__logo">DayControl</a>
+				</li>
+				<li>
+					<button class="icon-btn" aria-label="Уведомления">
+						<img src="./svg/bell.svg" alt="">
+					</button>
+				</li>
+				<li>
+					<button class="icon-btn" aria-label="Свернуть / развернуть сайдбар">
+						<img src="./svg/sidebar.svg" alt="">
+					</button>
+				</li>
+			</ul>
+		</nav>
+
+		<!--! Правая часть: профиль + переключатель темы -->
+		<nav class="header__menu" aria-label="Действия пользователя">
+			<ul class="header__menu-list">
+				<li>
+					<button class="icon-btn" aria-label="Профиль">
+						<img src="./svg/profile.svg" alt="">
+					</button>
+				</li>
+				<li>
+					<button class="icon-btn" aria-label="Меню профиля">
+						<img src="./svg/chevron_down.svg" alt="">
+					</button>
+				</li>
+			</ul>
+		</nav>
+	</header>
+
+<!--! ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+<!--! ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+
+
+
+
+
+<script src="./script/Task.js"></script>
+<script src="./script/TaskManager.js"></script>
+<script src="./script/app.js"></script>
 
 </body>
-
 </html>

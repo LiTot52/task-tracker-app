@@ -1,0 +1,33 @@
+:root {
+  /*! Акцент */
+  --accent:         #3A72C8;
+  --accent-hover:   #2A5DAF;
+  --accent-soft:    #90B8E8;
+  --accent-subtle:  #DDEAF8;
+
+  /*! Приоритеты */
+  --priority-high:   #EF4444;
+  --priority-medium: #F59E0B;
+  --priority-low:    #22C55E;
+
+  /*! Типографика */
+  --font-base: 'Inter', sans-serif;
+  --text-xs:   11px;
+  --text-sm:   13px;
+  --text-md:   15px;
+  --text-lg:   20px;
+  --text-xl:   26px;
+
+  /*! Скругления */
+  --radius-sm:  6px;
+  --radius-md:  10px;
+  --radius-lg:  14px;
+  --radius-xl:  20px;
+
+  /*! Тени */
+  --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.08);
+  --shadow-md: 0 4px 16px rgba(15, 23, 42, 0.10);
+
+  /*! Переходы */
+  --transition: 150ms ease;
+}

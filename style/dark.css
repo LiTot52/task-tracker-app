@@ -1,0 +1,58 @@
+[data-theme="dark"] {
+  /* Фон */
+  --bg-page:     #0E1520;
+  --bg-surface:  #151A22;
+  --bg-elevated: #1E2738;
+  --bg-hover:    #232E42;
+
+  /* Текст */
+  --text-primary:   #E8EEF6;
+  --text-secondary: #90A0B8;
+  --text-muted:     #506070;
+  --text-disabled:  #354050;
+
+  /* Границы */
+  --border:       #2C3A52;
+  --border-hover: #3A4E6A;
+  --border-focus: var(--accent);
+
+  /* Иконки */
+  --icon-primary:   #E8EEF6;
+  --icon-secondary: #7088A8;
+  --icon-muted:     #485A70;
+
+  /* Хедер */
+  --header-bg:     #151A22;
+  --header-border: #1E2738;
+
+  /* Сайдбар */
+  --sidebar-bg:        #0E1520;
+  --sidebar-nav-hover: #1A2535;
+  --sidebar-nav-active-bg:   #1E3A5C;
+  --sidebar-nav-active-text: #90B8E8;
+
+  /* Задачи */
+  --task-bg:        #1E2738;
+  --task-bg-done:   #181F2C;
+  --task-border:    #2C3A52;
+  --task-text-done: #506070;
+
+  /* Кнопки */
+  --btn-primary-bg:    var(--accent);
+  --btn-primary-text:  #FFFFFF;
+  --btn-primary-hover: var(--accent-hover);
+
+  --btn-secondary-bg:   #1E2738;
+  --btn-secondary-text: #90A0B8;
+  --btn-secondary-hover: #232E42;
+
+  /* Модалка */
+  --modal-bg:      #1E2738;
+  --modal-overlay: rgba(5, 10, 18, 0.65);
+
+  /* Инпуты */
+  --input-bg:           #151A22;
+  --input-border:       #2C3A52;
+  --input-focus-border: var(--accent);
+  --input-focus-shadow: 0 0 0 3px rgba(58, 114, 200, 0.20);
+}
