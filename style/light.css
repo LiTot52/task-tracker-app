@@ -12,6 +12,29 @@
   --text-muted:     #8A97AD;
   --text-disabled:  #BCC4D2;
 
+  /* Акцент */
+  --accent:       #3A72C8;
+  --accent-hover: #2d5ea8;
+
+  /* Статусы */
+  --color-success: #22c55e;
+  --color-danger:  #ef4444;
+
+  /* Бейджи */
+  --badge-work-bg:       #dbeafe;
+  --badge-work-text:     #1d4ed8;
+  --badge-study-bg:      #e0e7ff;
+  --badge-study-text:    #4338ca;
+  --badge-personal-bg:   #dcfce7;
+  --badge-personal-text: #166534;
+  --badge-high-bg:       #fee2e2;
+  --badge-high-text:     #991b1b;
+  --badge-medium-bg:     #fef9c3;
+  --badge-medium-text:   #854d0e;
+  --badge-low-bg:        #dcfce7;
+  --badge-low-text:      #166534;
+
+
   /* Границы */
   --border:       #DDE3EE;
   --border-hover: #B8C4D8;
@@ -54,6 +77,26 @@
   /* Инпуты */
   --input-bg:      #FFFFFF;
   --input-border:  #DDE3EE;
-  --input-focus-border: var(--accent);
+  --input-focus-border: var(--acent);
   --input-focus-shadow: 0 0 0 3px rgba(58, 114, 200, 0.15);
+
+
+    --accent:       #3A72C8;
+  --accent-hover: #2d5ea8;
+
+  --color-success: #22c55e;
+  --color-danger:  #ef4444;
+
+  --badge-work-bg:       #dbeafe;
+  --badge-work-text:     #1d4ed8;
+  --badge-study-bg:      #e0e7ff;
+  --badge-study-text:    #4338ca;
+  --badge-personal-bg:   #dcfce7;
+  --badge-personal-text: #166534;
+  --badge-high-bg:       #fee2e2;
+  --badge-high-text:     #991b1b;
+  --badge-medium-bg:     #fef9c3;
+  --badge-medium-text:   #854d0e;
+  --badge-low-bg:        #dcfce7;
+  --badge-low-text:      #166534;
 }

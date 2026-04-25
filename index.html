@@ -2,67 +2,223 @@
 <html lang="ru" data-theme="light">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="color-scheme" content="dark light">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark light">
 
-	<!--! Стили: переменные → сброс → базовые → компоненты → темы -->
-	<link rel="stylesheet" href="./fonts/fonts.css">
-	<link rel="stylesheet" href="./style/variable.css">
-	<link rel="stylesheet" href="./style/global.css">
-	<link rel="stylesheet" href="./style/style.css">
-	<link rel="stylesheet" href="./style/light.css">
-	<link rel="stylesheet" href="./style/dark.css">
+    <link rel="stylesheet" href="./fonts/fonts.css">
+    <link rel="stylesheet" href="./style/variable.css">
+    <link rel="stylesheet" href="./style/global.css">
+    <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="./style/light.css">
+    <link rel="stylesheet" href="./style/dark.css">
 
-	<title>DayControl - Трекер задач</title>
+    <link rel="icon" href="./svg/favicon.svg">
+    <title>DayControl - Трекер задач</title>
 </head>
 
 <body class="page">
 
-	<header class="header">
+<!-- ===== HEADER ===== -->
+<header class="header">
+    <nav class="header__nav">
 
-		<!--! Левая часть: логотип + иконки управления -->
-		<nav class="header__menu" aria-label="Основная навигация">
-			<ul class="header__menu-list">
-				<li>
-					<a href="/" class="header__logo">DayControl</a>
-				</li>
-				<li>
-					<button class="icon-btn" aria-label="Уведомления">
-						<img src="./svg/bell.svg" alt="">
-					</button>
-				</li>
-				<li>
-					<button class="icon-btn" aria-label="Свернуть / развернуть сайдбар">
-						<img src="./svg/sidebar.svg" alt="">
-					</button>
-				</li>
-			</ul>
-		</nav>
+        <ul class="header__menu-list">
+            <li class="header__menu-list-item logo-item">
+                <a><img src="./svg/favicon.svg" class="logo_svg" alt="Логотип"></a>
+                <a href="#"><span>Day</span><span>Control</span></a>
+            </li>
+        </ul>
 
-		<!--! Правая часть: профиль + переключатель темы -->
-		<nav class="header__menu" aria-label="Действия пользователя">
-			<ul class="header__menu-list">
-				<li>
-					<button class="icon-btn" aria-label="Профиль">
-						<img src="./svg/profile.svg" alt="">
-					</button>
-				</li>
-				<li>
-					<button class="icon-btn" aria-label="Меню профиля">
-						<img src="./svg/chevron_down.svg" alt="">
-					</button>
-				</li>
-			</ul>
-		</nav>
-	</header>
+        <ul class="header__menu-list">
+            <li class="header__menu-list-item search-item">
+                <img src="./svg/search.svg" class="search_svg" alt="Иконка поиска">
+                <input type="search" id="search-input" placeholder="Поиск задач...">
+            </li>
+        </ul>
 
-<!--! ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
-<!--! ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+        <ul class="header__menu-list">
+            <li class="header__menu-list-item">
+                <button class="bell-btn">
+                    <img src="./svg/bell.svg" class="bell_svg" alt="Уведомления">
+                </button>
+                <div class="header__avatar"></div>
+            </li>
+        </ul>
 
+    </nav>
+</header>
 
+<!-- ===== LAYOUT ===== -->
+<div class="layout">
 
+    <!-- ===== SIDEBAR ===== -->
+    <aside class="sidebar">
 
+        <div class="sidebar__section">
+            <p class="sidebar__label">ФИЛЬТРЫ</p>
+            <ul class="sidebar__list">
+                <li class="sidebar__item active" data-filter="all">
+                    <img src="./svg/all_task.svg" alt="Все задачи">
+                    <span>Все задачи</span>
+                    <span class="sidebar__count" id="count-all">0</span>
+                </li>
+                <li class="sidebar__item" data-filter="active">
+                    <img src="./svg/active_task.svg" alt="Активные задачи">
+                    <span>Активные</span>
+                    <span class="sidebar__count" id="count-active">0</span>
+                </li>
+                <li class="sidebar__item" data-filter="done">
+                    <img src="./svg/complite_task.svg" alt="Выполненные задачи">
+                    <span>Выполненные</span>
+                    <span class="sidebar__count" id="count-done">0</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="sidebar__section">
+            <div class="sidebar__section-header">
+                <p class="sidebar__label">КАТЕГОРИИ</p>
+                <button class="sidebar__add-btn" id="add-category-btn" title="Добавить категорию">+</button>
+            </div>
+            <ul class="sidebar__list" id="category-list">
+                <!-- Добавляется через JS -->
+            </ul>
+            <div class="sidebar__add-form hidden" id="add-category-form">
+                <input type="text" class="sidebar__category-input" id="category-name" placeholder="Название...">
+                <div class="sidebar__color-picker" id="color-picker">
+                    <span class="color-option" data-color="red"    style="background:#ef4444"></span>
+                    <span class="color-option" data-color="yellow" style="background:#f59e0b"></span>
+                    <span class="color-option" data-color="green"  style="background:#22c55e"></span>
+                    <span class="color-option" data-color="blue"   style="background:#4361ee"></span>
+                    <span class="color-option" data-color="purple" style="background:#a855f7"></span>
+                </div>
+                <div class="sidebar__form-btns">
+                    <button id="confirm-category-btn">Добавить</button>
+                    <button id="cancel-category-btn">Отмена</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar__section">
+            <p class="sidebar__label">ПРИОРИТЕТ</p>
+            <ul class="sidebar__list">
+                <li class="sidebar__item" data-filter="high">
+                    <img src="./svg/priority/high_priority.svg" alt="Высокий приоритет">
+                    <span>Высокий</span>
+                    <span class="sidebar__count" id="count-high">0</span>
+                </li>
+                <li class="sidebar__item" data-filter="medium">
+                    <img src="./svg/priority/normal_priority.svg" alt="Средний приоритет">
+                    <span>Средний</span>
+                    <span class="sidebar__count" id="count-medium">0</span>
+                </li>
+                <li class="sidebar__item" data-filter="low">
+                    <img src="./svg/priority/low_priority.svg" alt="Низкий приоритет">
+                    <span>Низкий</span>
+                    <span class="sidebar__count" id="count-low">0</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Переключатель темы -->
+        <div class="sidebar__theme">
+            <span class="theme-label">Светлая тема</span>
+            <label class="toggle">
+                <input type="checkbox" id="theme-toggle">
+                <span class="toggle__track">
+                    <span class="toggle__thumb">
+                        <img class="toggle__sun"  src="./svg/sun.svg"  alt="Светлая">
+                        <img class="toggle__moon" src="./svg/moon.svg" alt="Тёмная">
+                    </span>
+                </span>
+            </label>
+        </div>
+
+    </aside>
+
+    <!-- ===== MAIN ===== -->
+    <main class="main">
+
+        <!-- Заголовок -->
+        <div class="main__header">
+            <div class="main__title-block">
+                <p class="main__workspace">РАБОЧЕЕ ПРОСТРАНСТВО</p>
+                <h1 class="main__title">Мои задачи</h1>
+                <p class="main__date" id="current-date"></p>
+            </div>
+            <button class="new-task-btn" id="new-task-btn">+ Новая задача</button>
+        </div>
+
+        <!-- Статистика -->
+        <div class="main__stats">
+            <div class="stat-item">
+                <span class="stat-num blue" id="stat-total">0</span>
+                <span class="stat-label">Всего задач</span>
+                <div class="stat-line blue"></div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-num green" id="stat-done">0</span>
+                <span class="stat-label">Выполнено</span>
+                <div class="stat-line green"></div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-num dark" id="stat-active">0</span>
+                <span class="stat-label">Активных</span>
+                <div class="stat-line dark"></div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-num red" id="stat-overdue">0</span>
+                <span class="stat-label">Просрочено</span>
+                <div class="stat-line red"></div>
+            </div>
+        </div>
+
+        <!-- Табы -->
+        <div class="main__filters">
+            <button class="tab active" data-tab="all">Все</button>
+            <button class="tab" data-tab="active">Активные</button>
+            <button class="tab" data-tab="done">Выполненные</button>
+            <button class="tab" data-tab="date">По дате создания</button>
+        </div>
+
+        <!-- Список задач -->
+        <div class="task-list" id="task-list">
+            <!-- Задачи добавляются через JS -->
+        </div>
+
+    </main>
+
+</div>
+
+<!-- ===== МОДАЛЬНОЕ ОКНО ===== -->
+<div class="modal-overlay hidden" id="modal-overlay">
+    <div class="modal" id="task-modal">
+        <div class="modal__header">
+            <h2 class="modal__title" id="modal-title">Новая задача</h2>
+            <button class="modal__close" id="modal-close">✕</button>
+        </div>
+        <div class="modal__body">
+            <input type="text" class="modal__input" id="task-title" placeholder="Название задачи*">
+            <textarea class="modal__textarea" id="task-desc" placeholder="Описание (необязательно)"></textarea>
+            <div class="modal__row">
+                <select class="modal__select" id="task-category">
+                    <option value="">Категория</option>
+                </select>
+                <select class="modal__select" id="task-priority">
+                    <option value="low">Низкий приоритет</option>
+                    <option value="medium" selected>Средний приоритет</option>
+                    <option value="high">Высокий приоритет</option>
+                </select>
+            </div>
+            <input type="date" class="modal__input" id="task-deadline">
+        </div>
+        <div class="modal__footer">
+            <button class="modal__btn-cancel" id="modal-cancel">Отмена</button>
+            <button class="modal__btn-save" id="modal-save">Сохранить</button>
+        </div>
+    </div>
+</div>
 
 <script src="./script/Task.js"></script>
 <script src="./script/TaskManager.js"></script>
